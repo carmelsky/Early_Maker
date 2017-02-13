@@ -1,0 +1,51 @@
+<ion-view style="" class=" " id="page7" title="Accueil" >
+    <ion-content class="has-header" padding="false"  "  >
+	<div class="tabs tabs-icon-top">
+  <a class="tab-item" ui-sref="test">
+    <i class="icon ion-home"></i>
+    Quiz
+  </a>
+  <a class="tab-item" ui-sref="text_video">
+    <i class="icon ion-star"></i>
+    Textes/Vidéos
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-gear-a"></i>
+    chat
+  </a>
+ 
+</div>
+
+<div class="item item-avatar" >
+
+
+      <img  ng-src="{{&apos;img/fk/&apos;+ user_info.photoURL +&apos;.jpg&apos;}}" >
+      <h4>Bonjour User : <b>{{user_info.displayName}}<b>  </h4>
+      <p>xxxxxxxx</p>
+  
+    <a ui-sref="note"> <img  ng-src="img/note.jpg" style="float: right;" height="62" width="62"></a>  
+</div>	
+
+          
+	<CENTER><h2>Barométre de la dernière séance </h2></CENTER>
+	Hygène 1 <br> </br>
+	Hygène 2 <br> </br>
+	Hygène 3 <br> </br>
+	<CENTER><h2>Animateur</h2></CENTER>	
+	<div class="item item-avatar" >
+      <img  ng-src="{{&apos;img/fk/&apos;+ user_info.photoURL +&apos;.jpg&apos;}}" >
+      <h4>Nom : {{animateur.nom}} </h4>
+      <p>Prénom</p> 
+	  
+	  <button class="button button-energized" style="width:130px">
+      Chatter
+      </button>
+       <button class="button button-energized">
+       Voir profil
+        </button>
+		</div>
+          
+<h3>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx </h3>
+
+	</ion-content>
+</ion-view>
