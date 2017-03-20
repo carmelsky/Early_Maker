@@ -1,20 +1,71 @@
 <ion-view style="" class=" " id="page7" title="Quiz 3">
-    <ion-content class="has-header" padding="false"  "  >
+    <ion-content class="has-header" padding="false"  ng-init="loadtest(1)"  >
 <div class="tabs tabs-icon-top">
-  <a class="tab-item" ui-sref="test">
-    <i class="icon ion-home"></i>
-    Quiz
-  </a>
-  <a class="tab-item" ui-sref="text_video">
+	 <a class="tab-item" ui-sref="text_video">
     <i class="icon ion-star"></i>
-    Textes/Vidéos
+    Textes
+  </a>
+  <a class="tab-item" ui-sref="video">
+    <i class="icon ion-home"></i>
+    Vidéo
+  </a>
+ 
+   <a class="tab-item" ui-sref="Exercice">
+    <i class="icon ion-star"></i>
+    Exercice
   </a>
   <a class="tab-item">
     <i class="icon ion-gear-a"></i>
-    chat
+    Chat
   </a>
-</div><br> </br>
+ 
+</div>
+   <h4> <b>Progression</b> </h4> 
+  <progress max="10" value="{{next}}"> </progress>
+</div>
 
-           
+
+<div ng-repeat="item in test" ng-if="item.type==3&&item.rang==next">
+  Question : {{item.contenu}} {{item.rang}}
+  </div>
+  
+<form name="quiz" class="list" id="login-form1" ng-show=show_next>
+
+   <li class="item item-checkbox">
+   Checbox 1
+   <label class="checkbox">
+   <input type="radio" ng-model="choix" value="1">
+   </label>
+   </li>
+
+   <li class="item item-checkbox">
+   Checkbox 2
+   <label class="checkbox">
+   <input type="radio" ng-model="choix" value="2">
+   </label>
+   </li>
+   
+    <li class="item item-checkbox">
+   Checkbox 3
+   <label class="checkbox">
+   <input type="radio" ng-model="choix" value="3">
+   </label>
+   </li>
+   
+    <li class="item item-checkbox">
+   Checkbox 4
+   <label class="checkbox">
+   <input type="radio" ng-model="choix" value="4">
+   </label>
+   </li>
+
+<!--<span ng-show=show_previous > <button ng-click="calcule_score(quiz,next-1,choix)" class="button button-energized" style="width:140px">Previous</button></span> -->
+<span ng-show=show_next><button ng-click="calcule_score(quiz,next+1,choix)" class="button button-energized"style="width:140px">Next</button></span>
+
+</form>
+	  
+	<center ng-show=show_score><h3>Votre score pour Quiz 3 est : {{score}}</h3> </center>
+    <span ng-show=show_score><button ng-click="loadtest(1)" class="button button-energized"style="width:200px">Refaire le quiz</button></span>
 	</ion-content>
+	
 </ion-view>

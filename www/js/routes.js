@@ -30,7 +30,7 @@ angular.module('app.routes', [])
       templateUrl: 'templates/accueil.html',
       controller: 'accueilCtrl'
     })
-  
+
 
   .state('tabsController.signup', {
     url: '/page6',
@@ -47,10 +47,20 @@ angular.module('app.routes', [])
       templateUrl: 'templates/accueil.html',
       controller: 'accueilCtrl'
     })
+	.state('video', {
+      url: '/video',
+      templateUrl: 'templates/video.html',
+      controller: 'videoCtrl'
+    })
 	.state('test', {
       url: '/test',
       templateUrl: 'templates/test.html',
       //controller: 'testCtrl'
+    })
+	.state('Exercice', {
+      url: '/Exercice',
+      templateUrl: 'templates/Exercice.html',
+      controller: 'ExerciceCtrl'
     })
 	.state('quiz_1', {
       url: '/Quiz 1',
@@ -60,28 +70,33 @@ angular.module('app.routes', [])
 	.state('quiz_2', {
       url: '/Quiz 2',
       templateUrl: 'templates/quiz_2.html',
-      //controller: 'quiz_3Ctrl'
+      controller: 'quiz_2Ctrl'
     })
 	.state('quiz_3', {
       url: '/Quiz 3',
       templateUrl: 'templates/quiz_3.html',
-      //controller: 'quiz_3Ctrl'
+      controller: 'quiz_3Ctrl'
     })
 	.state('quiz_4', {
       url: '/Quiz 4',
       templateUrl: 'templates/quiz_4.html',
-      //controller: 'quiz_4Ctrl'
+      controller: 'quiz_4Ctrl'
     })
-	
+
 	.state('text_video', {
       url: '/text_video',
       templateUrl: 'templates/text_video.html',
-      //controller: 'accueilCtrl'
+      controller: 'text_videoCtrl'
+    })
+	.state('profile_animateur', {
+      url: '/profile_animateur/:name_animatuer',
+      templateUrl: 'templates/profile_animateur.html',
+      controller: 'profile_animateurCtrl'
     })
 	.state('t_v_atelier1', {
-      url: '/textes et vidéos atelier1',
+      url: '/textes et vidéos atelier1/:hygene/:atelier',
       templateUrl: 'templates/t_v_atelier1.html',
-      //controller: 't_v_atelier1Ctrl'
+      controller: 't_v_atelier1Ctrl'
     })
 	.state('t_v_atelier2', {
       url: '/textes et vidéos atelier2',
@@ -101,33 +116,8 @@ angular.module('app.routes', [])
 	.state('note', {
       url: '/Mes notes',
       templateUrl: 'templates/note.html',
-      //controller: 't_v_atelier1Ctrl'
+      controller: 'noteCtrl'
     })
-
-
-  .state('offers', {
-    url: '/page8',
-    templateUrl: 'templates/offers.html',
-    controller: 'offersCtrl'
-  })
-
-  .state('myCart', {
-    url: '/page9',
-    templateUrl: 'templates/myCart.html',
-    controller: 'myCartCtrl'
-  })
-
-  .state('lastOrders', {
-    url: '/page10',
-    templateUrl: 'templates/lastOrders.html',
-    controller: 'lastOrdersCtrl'
-  })
-
-  .state('favourite', {
-    url: '/page11',
-    templateUrl: 'templates/favourite.html',
-    controller: 'favouriteCtrl'
-  })
 
   .state('settings', {
     url: '/page12',
@@ -140,13 +130,16 @@ angular.module('app.routes', [])
     templateUrl: 'templates/support.html',
     controller: 'supportCtrl'
   })
-
-  .state('checkout', {
-    url: '/page16',
-    templateUrl: 'templates/checkout.html',
-    controller: 'checkoutCtrl'
+  .state('chat', {
+    url: '/chat',
+    templateUrl: 'templates/chat.html',
+    controller: 'chatCtrl'
   })
-
+  .state('conversation', {
+    url: '/chat',
+    templateUrl: 'templates/chat.html',
+    controller: 'chatCtrl'
+  })
   .state('tabsController.forgotPassword', {
     url: '/page15',
     views: {

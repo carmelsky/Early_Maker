@@ -1,0 +1,57 @@
+<ion-view style="" class=" "  title="Exercices">
+    <ion-content style="background-color:#e6e6ff" class="has-header" padding="false"   >
+	<div class="tabs tabs-icon-top">
+	 <a class="tab-item" ui-sref="text_video">
+    <i class="icon ion-star"></i>
+    Textes
+  </a>
+  <a class="tab-item" ui-sref="video">
+    <i class="icon ion-home"></i>
+    Vidéo
+  </a>
+
+   <a class="tab-item" ui-sref="Exercice">
+    <i class="icon ion-star"></i>
+    Exercice
+  </a>
+  <a class="tab-item" ui-sref="chat">
+    <i class="icon ion-gear-a"></i>
+    Chat
+  </a>
+
+</div>
+
+<br> </br>
+<label class = "item item-input item-select item-positive">
+      <div class = "input-label">
+         Choissir le type d'Hygene :
+      </div>
+
+      <select ng-model="choix">
+         <option value="Physique">Physique</option>
+         <option value="Psychique">Psychique</option>
+         <option value="Rationnelle">Rationnelle</option>
+      </select>
+   </label>
+
+	<button class="button button-block" ng-click="get_ex(choix,1)">
+   atelier 1
+</button>
+<br> </br>
+		<button class="button button-block" ng-click="get_ex(choix,2)">
+   atelier 2
+</button>
+<br> </br>
+		<button class="button button-block" ng-click="get_ex(choix,3)">
+   atelier 3
+</button>
+<br> </br>
+		<button class="button button-block" ng-click="get_ex(choix,4)">
+   atelier 4
+</button>
+
+<div ng-repeat="item in ex" ng-if="item.type==1">
+
+  </div>
+	</ion-content>
+</ion-view>

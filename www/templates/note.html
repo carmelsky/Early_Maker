@@ -1,10 +1,49 @@
 <ion-view style="" class=" "  title="Mes notes">
-    <ion-content class="has-header" padding="false"  "  >
+    <ion-content style="background-color:#e6e6ff" class="has-header" padding="false"  " ng-init="loadnotes()" >
+	<div class="tabs tabs-icon-top">
+	 <a class="tab-item" ui-sref="text_video">
+    <i class="icon ion-star"></i>
+    Textes
+  </a>
+  <a class="tab-item" ui-sref="video">
+    <i class="icon ion-home"></i>
+    Vidéo
+  </a>
+ 
+   <a class="tab-item" ui-sref="Exercice">
+    <i class="icon ion-star"></i>
+    Exercice
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-gear-a"></i>
+    Chat
+  </a>
+ 
+</div>
 
-<br> </br>
-		
-xxxxxxxxxxxx
-xxxxxxxxxxxxx
-xxxxxxxxxxxx
+<br> 
+
+<form name="note_form">		
+<div class="list">
+  <label class="item item-input">
+   <textarea ng-model="note" rows=4 cols=180>{{user_extras.notes}}</textarea>
+
+  </label>
+</div>
+
+<button ng-click="save(note_form,note)"  class="button button-assertive" >
+   Ajouter
+</button>
+<form><br>
+<h3>Mes notes :</h3> <br></br>
+<div class="list">
+<label class="item item-input">
+ <textarea rows=8 cols=180 >{{user_extras.notes}}</textarea> <br></br>
+ </label>
+ </div>
+<button ng-click="supp_notes()"  class="button button-assertive" >
+   Supprimer mes notes
+</button>
+
 	</ion-content>
 </ion-view>

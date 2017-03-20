@@ -11,7 +11,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     //$ionicConfigProvider.views.maxCache(5);
     $ionicConfigProvider.scrolling.jsScrolling(false);
     $ionicConfigProvider.tabs.position('bottom'); // other values: top
+	//$ionicConfigProvider.backButton.previousTitleText(false);
 })
+
 .run(function($ionicPlatform,$rootScope) {
 
     $rootScope.extras = false;
@@ -27,5 +29,30 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    // NOTIFICATIONS avec OneSignal
+
+
+
+      // Enable to debug issues.
+      // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+      var notificationOpenedCallback = function(jsonData) {
+        //alert("Notification opened:\n" + JSON.stringify(jsonData));
+        console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+      };
+
+      window.plugins.OneSignal
+        .startInit("1587789c-f978-40d3-9a41-9597a99df60b")
+        .handleNotificationOpened(notificationOpenedCallback)
+        .endInit();
+
   });
 })
+ .directive('dynamicUrl', function () {
+    return {
+        restrict: 'A',
+        link: function postLink(scope, element, attr) {
+            element.attr('src', attr.dynamicUrlSrc);
+        }
+    };
+});

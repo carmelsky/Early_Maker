@@ -2,37 +2,38 @@ angular.module('app.services', [])
 
 
 .factory('fireBaseData', function($firebase) {
-	var ref = new Firebase("https://projet-ionic-30642.firebaseio.com/"),
-    refCart = new Firebase("https://projet-ionic-30642.firebaseio.com/cart"),
-    refUser = new Firebase("https://projet-ionic-30642.firebaseio.com/users"),
-    refCategory = new Firebase("https://projet-ionic-30642.firebaseio.com/category"),
-    refOrder = new Firebase("https://projet-ionic-30642.firebaseio.com/orders"),
-    refFeatured = new Firebase("https://projet-ionic-30642.firebaseio.com/featured"),
-    reftest = new Firebase("https://projet-ionic-30642.firebaseio.com/test");
-	//reftest = new Firebase("https://projet-ionic-30642.firebaseio.com/test");
+	var ref = new Firebase("https://early-maker.firebaseio.com/"),
+    refvideo = new Firebase("https://early-maker.firebaseio.com/video"),
+    refUser = new Firebase("https://early-maker.firebaseio.com/users"),
+    reftext = new Firebase("https://early-maker.firebaseio.com/text"),
+    refexercice = new Firebase("https://early-maker.firebaseio.com/exercice"),
+    reftest = new Firebase("https://early-maker.firebaseio.com/test");
+		refchat = new Firebase("https://early-maker.firebaseio.com/chat");
+
+
   return {
     ref: function() {
       return ref;
     },
-    refCart: function() {
-      return refCart;
+    refvideo: function() {
+      return refvideo;
+    },
+	 refchat: function() {
+      return refchat;
     },
     refUser: function() {
       return refUser;
     },
-    refCategory: function() {
-      return refCategory;
+    reftext: function() {
+      return reftext;
     },
-    refOrder: function() {
-      return refOrder;
-    },
-    refFeatured: function() {
-      return refFeatured;
+    refexercice: function() {
+      return refexercice;
     },
     reftest: function() {
       return reftest;
     }
-    
+
   }
 })
 
@@ -173,4 +174,3 @@ angular.module('app.services', [])
 .service('BlankService', [function(){
 
 }]);
-

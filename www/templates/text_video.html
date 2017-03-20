@@ -1,36 +1,44 @@
-<ion-view style="" class=" " id="page7" title="Textes et vidéos">
-    <ion-content class="has-header" padding="false"  "  >
+<ion-view style="" class=" " id="page7" title="Textes ">
+    <ion-content style="background-color:#e6e6ff" class="has-header" padding="false"  ng-init="load(0)" >
 
 <br> </br>
-		<button class="button button-block" ui-sref="t_v_atelier1">
-   atelier 1
-</button>
-<br> </br>
-		<button class="button button-block" ui-sref="t_v_atelier2">
-   atelier 2
-</button>
-<br> </br>
-		<button class="button button-block" ui-sref="t_v_atelier3">
-   atelier 3
-</button>
-<br> </br>
-		<button class="button button-block" ui-sref="t_v_atelier4">
-   atelier 4
-</button>
+	
 
 <div class="tabs tabs-icon-top">
-  <a class="tab-item" ui-sref="test">
-    <i class="icon ion-home"></i>
-    Quiz
-  </a>
-  <a class="tab-item" ui-sref="text_video">
+	 <a class="tab-item" ui-sref="text_video">
     <i class="icon ion-star"></i>
-    Textes/Vidéos
+    Textes
+  </a>
+  <a class="tab-item" ui-sref="video">
+    <i class="icon ion-home"></i>
+    Vidéo
+  </a>
+ 
+   <a class="tab-item" ui-sref="Exercice">
+    <i class="icon ion-star"></i>
+    Exercice
   </a>
   <a class="tab-item">
     <i class="icon ion-gear-a"></i>
-    chat
+    Chat
   </a>
+ 
 </div>
+
+<center>
+ {{getDatetime | date:'mediumDate'}}<br>
+ <a ng-click="load(a-1)" class="button icon-left ion-chevron-left button-clear button-dark">Back</a><a ng-click="ajout_date(a+1)" class="button icon-right ion-chevron-right button-clear button-dark">next</a><br>
+ 
+ 
+ </center> <br>
+ <center>
+ <div ng-repeat="item in text" ng-if="item.date==date">
+  
+  
+ <h3> Texte du : {{getDatetime | date:'mediumDate'}} - Type: {{item.type}}</h3>
+<h4> {{item.contenu}} </h4>
+ </div>
+ </center>
+ 
 	</ion-content>
 </ion-view>

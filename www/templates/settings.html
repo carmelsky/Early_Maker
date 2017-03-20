@@ -1,5 +1,5 @@
 <ion-view style="" class=" " id="page12" title="Settings">
-    <ion-content class="has-header" padding="false"  >
+    <ion-content style="background-color:#e6e6ff" class="has-header" padding="false"  >
 
 
 
@@ -10,16 +10,15 @@
         <ion-list class=" " >
 
           <!-- Profile Cover Page -->
-          <div class="profile-nav col-md-3">
-            <div class="panel">
-              <div class="user-heading round">
-                <a href="#">
-                  <img ng-src="{{&apos;img/fk/&apos;+ user_info.photoURL +&apos;.jpg&apos;}}" >
-                </a>
-                <p style="color: #ffffff;">{{user_info.displayName}}</p>
-              </div>
-            </div>
-          </div>
+          <ion-item class="item item-avatar" >
+
+
+      <img  ng-src="{{&apos;img/fk/&apos;+ user_info.photoURL +&apos;.jpg&apos;}}"  >
+      <h4><a ui-sref="settings"> <b>{{user_info.displayName}} <b></a>  <b> </h4>
+	  
+  
+    <a ui-sref="note"> <img  ng-src="img/note.jpg" style="float: right;" height="62" width="62"></a> 
+	</ion-item>	
 
 
           <label class="item item-input ic-selected">
@@ -72,7 +71,49 @@
         </div>
 
 
-
+         <label class = "item item-input item-select item-positive">
+      <div class = "input-label">
+         Choissir le type d'Hygene :
+      </div>
+		
+      <select ng-model="choix">
+         <option value="Physique">Physique</option>
+         <option value="Psychique">Psychique</option>
+         <option value="Rationnelle">Rationnelle</option>
+      </select>
+   </label><br>
+   <center>
+   <TABLE BORDER  WIDTH=450 HEIGHT=300>
+<TR><TD><div class = "input-label">
+         Temps d'arrêt
+      </div>
+		
+      <select ng-model="choix">
+         <option value="Physique">xxx</option>
+         <option value="Psychique">xxx</option>
+         <option value="Rationnelle">xxx</option>
+      </select></TD><TD><div class = "input-label">
+         Temps d'arrêt
+      </div>
+		
+      <select ng-model="choix">
+         <option value="Physique">xxx</option>
+         <option value="Psychique">xxx</option>
+         <option value="Rationnelle">xxx</option>
+      </select></TD><TD><div class = "input-label">
+         Temps d'arrêt
+      </div>
+		
+      <select ng-model="choix">
+         <option value="Physique">xxx</option>
+         <option value="Psychique">xxx</option>
+         <option value="Rationnelle">xxx</option>
+      </select></TD></TR>
+</TABLE>
+   </center>
+   
+   
+   
 
         </ion-list>
 

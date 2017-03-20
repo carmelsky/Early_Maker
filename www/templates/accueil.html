@@ -1,51 +1,53 @@
 <ion-view style="" class=" " id="page7" title="Accueil" >
-    <ion-content class="has-header" padding="false"  "  >
-	<div class="tabs tabs-icon-top">
-  <a class="tab-item" ui-sref="test">
-    <i class="icon ion-home"></i>
-    Quiz
-  </a>
-  <a class="tab-item" ui-sref="text_video">
+    <ion-content style="background-color:#e6e6ff" class="has-header" padding="false" ng-init="load()"  >
+	
+	<div class="tabs tabs-icon-top" > 
+	 <a class="tab-item" ui-sref="text_video">
     <i class="icon ion-star"></i>
-    Textes/Vidéos
+    Textes
   </a>
-  <a class="tab-item">
+  <a class="tab-item" ui-sref="video">
+    <i class="icon ion-home"></i>
+    Vidéo
+  </a>
+ 
+   <a class="tab-item" ui-sref="Exercice">
+    <i class="icon ion-star"></i>
+    Exercice
+  </a>
+  <a class="tab-item" ui-sref="chat">
     <i class="icon ion-gear-a"></i>
-    chat
+    Chat
   </a>
  
 </div>
 
-<div class="item item-avatar" >
+<ion-item class="item item-avatar" >
 
 
       <img  ng-src="{{&apos;img/fk/&apos;+ user_info.photoURL +&apos;.jpg&apos;}}" >
-      <h4>Bonjour User : <b>{{user_info.displayName}}<b>  </h4>
-      <p>xxxxxxxx</p>
-  
-    <a ui-sref="note"> <img  ng-src="img/note.jpg" style="float: right;" height="62" width="62"></a>  
-</div>	
-
-          
-	<CENTER><h2>Barométre de la dernière séance </h2></CENTER>
-	Hygène 1 <br> </br>
-	Hygène 2 <br> </br>
-	Hygène 3 <br> </br>
-	<CENTER><h2>Animateur</h2></CENTER>	
-	<div class="item item-avatar" >
-      <img  ng-src="{{&apos;img/fk/&apos;+ user_info.photoURL +&apos;.jpg&apos;}}" >
-      <h4>Nom : {{animateur.nom}} </h4>
-      <p>Prénom</p> 
+      <h4>Bonjour : <a  ui-sref="settings"> <b>{{user_info.displayName}} <b></a> <br>  {{getDatetime | date:'medium'}}</b> <b> </h4>
 	  
-	  <button class="button button-energized" style="width:130px">
-      Chatter
-      </button>
-       <button class="button button-energized">
-       Voir profil
-        </button>
-		</div>
-          
-<h3>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx </h3>
+  
+    <a ui-sref="note"> <img   ng-src="img/note.png" style="float: right;" height="62" width="62"></a>  
+	</ion-item>	
+<CENTER><b><h4>Texte du jour </h4></b>
+
+  <span style="background-color:#e6e6ff" class="list card animated fadeInUp">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+</CENTER>	
+
+  <CENTER><b><h4>Barométre de la dernière séance </h4></b></CENTER>
+
+	Hygène Physique :  <progress max="40" value="{{user_extras.score_quiz1}}"> </progress> 
+	Hygène Psychique :   <progress max="40" value="{{user_extras.score_quiz2}}"> </progress>
+	Hygène Rationnelle :  <progress max="40" value="{{user_extras.score_quiz3}}"> </progress>
+	</ion-item>	
+	
+	<span class="item item-avatar" ng-repeat="item in xx" ng-if="item.role=='animateur'" style="border-top: 1px solid #999;">
+	Animateur:<img  ng-src="{{&apos;img/fk/&apos;+ user_info.photoURL +&apos;.jpg&apos;}}" >
+  <a ng-click="voir_profil(item.name)"><h4>Nom : <b>{{item.name}} </b> </h4><br></a>
+  
+    </span>
 
 	</ion-content>
 </ion-view>
