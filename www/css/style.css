@@ -305,3 +305,147 @@ p {
 }
 
 ///* TODO:  */
+
+
+
+.overall {
+  width: 100%;
+  height: 100%;
+  margin: 20px;
+}
+.chatcontainer {
+  display: flex;
+  height: 80px;
+  width: 75%;
+  position: relative;
+  border-radius: 2px;
+  padding: 10px;
+  margin: 0px 10%;
+  background-color: #f0f0f0;
+  box-shadow: 0 1px 3px 0 #707070, 0 1px 1px 0 #adadad;
+  transition: box-shadow 0.15s ease-in-out;
+}
+.chatcontainer:hover {
+  box-shadow: 0 5px 10px 0 #757575, 0 4px 5px 0 #a8a8a8;
+}
+.chatcontainer:active {
+  background-color: #e0e0e0;
+}
+.chatcontainer .photo {
+  display: block;
+  background-repeat: no-repeat;
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+  border-radius: 30px;
+  border: 1px solid #eaeaea;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+}
+.chatcontainer .chattext {
+  flex: 1;
+  height: 60px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.chatcontainer .chattext .status {
+  position: absolute;
+  top: 10px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+}
+.chatcontainer .chattext .status.-online {
+  background-color: #37d316;
+}
+.chatcontainer .chattext .status.-offline {
+  border: 1px solid #adadad;
+}
+.chatcontainer .chattext .chatname {
+  position: absolute;
+  top: 5px;
+  left: 17px;
+  color: #000;
+  font-size: 1.5em;
+}
+.chatcontainer .chattext .chatmessage {
+  top: 35px;
+  position: absolute;
+  width: 100%;
+  height: 15px;
+  line-height: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chatcontainer .chattext .chatmessage.-unread {
+  font-weight: bold;
+}
+.chatcontainer .connection {
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  position: relative;
+}
+.chatcontainer .connection .time {
+  position: absolute;
+  top: 35px;
+}
+
+
+
+///////
+.chat {
+  width: 400px;
+}
+
+.bubble {
+  border-radius: 5px;
+  box-shadow: 0 0 6px #B2B2B2;
+  display: inline-block;
+  padding: 10px 18px;
+  position: relative;
+  vertical-align: top;
+}
+
+.bubble::before {
+  content: "\00a0";
+  display: block;
+  height: 16px;
+  position: absolute;
+  top: 11px;
+  transform: rotate( 29deg) skew( -35deg);
+  -moz-transform: rotate( 29deg) skew( -35deg);
+  -ms-transform: rotate( 29deg) skew( -35deg);
+  -o-transform: rotate( 29deg) skew( -35deg);
+  -webkit-transform: rotate( 29deg) skew( -35deg);
+  width: 20px;
+}
+
+.me {
+  background-color: #DEDEE5;
+  float: left;
+  margin: 5px 45px 5px 20px;
+}
+
+.me::before {
+  background-color: #DEDEE5;
+  box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4);
+  left: -9px;
+}
+
+.you {
+  background-color: #40A8FC;
+  float: right;
+  margin: 5px 20px 5px 45px;
+}
+
+.you::before {
+  background-color: #40A8FC;
+  box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4);
+  right: -9px;
+}

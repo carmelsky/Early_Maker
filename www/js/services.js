@@ -9,6 +9,15 @@ angular.module('app.services', [])
     refexercice = new Firebase("https://early-maker.firebaseio.com/exercice"),
     reftest = new Firebase("https://early-maker.firebaseio.com/test");
 		refchat = new Firebase("https://early-maker.firebaseio.com/chat");
+    var utilisateur = null;
+
+		//Check if user already logged in
+		firebase.auth().onAuthStateChanged(function(user) {
+			if (user) {
+				utilisateur=user;
+			}
+		});
+
 
 
   return {
@@ -32,7 +41,10 @@ angular.module('app.services', [])
     },
     reftest: function() {
       return reftest;
-    }
+    },
+    utilisateur: function() {
+      return utilisateur;
+    },
 
   }
 })

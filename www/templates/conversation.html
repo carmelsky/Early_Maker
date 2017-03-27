@@ -1,15 +1,39 @@
 <!--DOCTYPE html -->
-<ion-view style="" class=" " title="conversation">
-  <ion-nav-buttons side="secondary">
-    <!--button class="button button-icon button-clear ion-ios-person"></button-->
-    <button class="button button-icon button-clear ion-chatbubbles" ng-click="addMessage()"></button>
-    <button class="button button-icon button-clear ion-ios-people"></button>
-
-  </ion-nav-buttons>
+<ion-view style="" class=" " title="{{conversation}}">
   <ion-content style="background-color:#e6e6ff" class="has-header" padding="false">
 
     <!-- Contenu de la page -->
+    <ion-content padding="true" class="has-header">
 
+        <div ng-repeat="message in messages">
+          <div ng-if="message.content.length > 0">
+            <div ng-if="message.user == user">
+              <div class="bubble you">
+                {{ message.content }}
+              </div>
+            </div>
+            <div style="clear:both"></div>
+            <div ng-if="message.user != user">
+              <div class="from-them">
+                <p>{{ message.content }}</p>
+              </div>
+            </div>
+            <div style="clear:both"></div>
+          </div>
+        </div>
+      </ion-content>
+      <ion-footer-bar keyboard-attach>
+        <form style="width: 100%">
+          <div class="bar bar-header item-input-inset">
+            <label class="item-input-wrapper">
+              <input type="search" placeholder="Tapez un message" ng-model="add.message">
+            </label>
+            <button class="button" type="submit" ng-click="add(add)">
+              Envoyer
+            </button>
+          </div>
+        </form>
+      </ion-footer-bar>
 
 
 

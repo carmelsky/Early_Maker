@@ -136,12 +136,13 @@ angular.module('app.routes', [])
     controller: 'chatCtrl'
   })
   .state('conversation', {
-    url: '/chat',
-    templateUrl: 'templates/chat.html',
-    controller: 'chatCtrl'
+    url: '/conversation/:conversation',
+    templateUrl: 'templates/conversation.html',
+    controller: 'conversationCtrl'
   })
   .state('tabsController.forgotPassword', {
     url: '/page15',
+
     views: {
       'tab1': {
         templateUrl: 'templates/forgotPassword.html',

@@ -6,22 +6,7 @@
     <button class="button button-icon button-clear ion-ios-people"></button>
 
   </ion-nav-buttons>
-  <ion-content style="background-color:#e6e6ff" class="has-header" padding="false">
-
-    <!-- Contenu de la page -->
-    <div class="list card">
-      <a ng-click="conversation(Yves)" class="item item-icon-left">
-        <i class="icon ion-person"></i> Yves
-      </a>
-    </div>
-    <div class="list card">
-      <a href="#" class="item item-icon-left">
-        <i class="icon ion-person"></i> Wassim
-      </a>
-    </div>
-
-
-
+  <ion-content style="background-color:#e6e6ff" class="has-header">
     <!-- Pied de page -->
     <div class="tabs tabs-icon-top">
       <a class="tab-item" ui-sref="text_video">
@@ -37,6 +22,37 @@
         <i class="icon ion-gear-a"></i> Chat
       </a>
     </div>
+
+
+
+    <br></br>
+    <div class="list " ng-repeat="item in conversations" >
+    <div class="overall">
+      <!--div class="chatcontainer"><a class="photo" style="background-image: url(https://graph.facebook.com/100006582316470/picture?width=130&amp;height=130)"></a>
+        <div class="chattext">
+          <div class="status -online" title="User is online!"></div>
+          <div class="chatname">Gal</div>
+          <div class="chatmessage">Looking hot today like you always have before</div>
+        </div>
+        <div class="connection">
+          <div class="time">10:39 PM</div>
+        </div>
+      </div-->
+      <div class="chatcontainer" >
+        <div class="photo" style="background-image: url(https://cdn-images-1.medium.com/max/600/1*0Cj-W6K2TP_xAh-rXxunBg.png)"></div>
+        <div class="chattext" ng-click="discussion(item.title)">
+          <div class="status -online" title="User is online!"></div>
+          <div class="chatname">{{item.title}}</div>
+          <div class="chatmessage -unread">{{item.lastMessage}}</div>
+        </div>
+        <div class="connection">
+          <div class="time">10:39 PM </div>
+          <!--div class="time">{{item.timestamp}}</div-->
+        </div>
+      </div>
+    </div>
+
+
 
 
   </ion-content>

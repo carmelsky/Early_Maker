@@ -1,4 +1,5 @@
-angular.module('app.controllers', [])
+angular.module('app.controllers', ['firebase'])
+
 
   .controller('loginCtrl', function($scope, $rootScope, $ionicHistory, sharedUtils, $state, $ionicSideMenuDelegate) {
     $rootScope.extras = false; // For hiding the side bar and nav icon
@@ -18,7 +19,6 @@ angular.module('app.controllers', [])
     //Check if user already logged in
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-
         $ionicHistory.nextViewOptions({
           historyRoot: true
         });
@@ -785,14 +785,95 @@ angular.module('app.controllers', [])
 
 
   //TODO:Controlleur du chat
-  .controller('chatCtrl', function($scope, $rootScope) {
-    //alert("Chat Data loaded:\n" + JSON.stringify(fireBaseData.refchat()));
-    $scope.conversation = function(name) {
-      $state.go('profile_animateur', {
-        name_animatuer: name
-      });
+  .controller('chatCtrl', function($scope, $rootScope, sharedUtils, $ionicSideMenuDelegate,
+    $state, fireBaseData, $ionicHistory, $firebaseObject, $firebaseArray) {
+
+      //TODO: affichage de la liste des conversations
+      //console.log(user.displayName + " " + user.email);
+      var utilisateur = fireBaseData.utilisateur();
+
+      if(utilisateur){
+        $scope.user = utilisateur.displayName;
+
+        var queryMessages = firebase.database().ref('/chat/conversations/').orderByChild('users/' + $scope.user + '').equalTo(true);
+
+        queryMessages.on('value', function(snapshot) {
+          console.log(snapshot.val());
+          $scope.conversations = snapshot.val();
+        });
+
+
+      }
+
+      $scope.discussion = function(conversation) {
+        $state.go("conversation", {
+          "conversation": conversation
+        });
+      };
+
   })
 
+  .controller('conversationCtrl', function($scope, $rootScope, sharedUtils, $ionicSideMenuDelegate,
+    $state, fireBaseData, $ionicHistory, $firebaseObject, $firebaseArray, $stateParams) {
+    //Bugs are most prevailing here
+    $rootScope.extras = true;
+
+    var utilisateur = fireBaseData.utilisateur();
+
+    if(utilisateur){
+      console.log(utilisateur);
+
+      $scope.conversation = $stateParams.conversation;
+      $scope.user = utilisateur.displayName;
+
+      var queryMessages = fireBaseData.refchat().child("messages").orderByChild('conversation').equalTo($scope.conversation);;
+      //firebase.database().ref('/chat/messages/');
+
+      queryMessages.on('value', function(snapshot) {
+        console.log(snapshot.val());
+      });
+
+      $scope.messages = $firebaseArray(queryMessages);
+
+      // Quand on recoit un message, on joue une musique
+      queryMessages.on('child_added', function(snap) {
+        var newMessage = snap.val();
+        if (newMessage.user != $scope.user) {
+          var audio = new Audio('img/sons/message.mp3');
+          audio.play();
+        }
+      });
+
+
+      //Quand l'utilisateur clique sur le bouton "envoyer"
+      $scope.add = function(add) {
+        //Ajouter un  message a une conversation
+        $scope.messages.$add({
+          "conversation": $scope.conversation,
+          "date": new Date().getTime(),
+          "user": $scope.user,
+          "content": add.message
+        });
+        $scope.add.message = "";
+
+      };
+
+    }
+
+
+
+
+      // Ajouter un  membre a une conversation
+      //  $scope.conversations.$add({
+      //    "conversation" : $scope.conversation,
+      //    "date": new Date().getTime(),
+      //    "membre": add.message
+      //  });
+      //  $scope.add.message= "";
+
+
+
+  })
 
   .controller('supportCtrl', function($scope, $rootScope) {
 
